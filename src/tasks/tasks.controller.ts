@@ -1,4 +1,5 @@
 import { Body, Controller, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
+import { TaskPropertyDto } from './dto/task-property.dto';
 
 @Controller('tasks')
 export class TasksController {
@@ -13,8 +14,8 @@ export class TasksController {
   }
 
   @Post()
-  createTask(@Body('title') title: string, @Body('description') description: string) {
-    return `createTask Success! Parameter [title:${title}, description:${description}]`;
+  createTask(@Body() task: TaskPropertyDto) {
+    return `createTask Success! Parameter [title:${task.title}, description:${task.description}]`;
   }
 
   @Patch('/:id')
