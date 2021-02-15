@@ -4,7 +4,6 @@ import { TasksModule } from './tasks/tasks.module';
 
 @Module({
   imports: [
-    TasksModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
@@ -14,6 +13,7 @@ import { TasksModule } from './tasks/tasks.module';
       synchronize: true,
       entities: [__dirname + '/**/*.entity.{js,ts}'],
     }),
+    TasksModule,
   ],
 })
 export class AppModule {}
